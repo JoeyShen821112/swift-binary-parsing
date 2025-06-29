@@ -68,10 +68,10 @@ extension ParserSpan {
   }
 }
 
+@available(macOS 9999, *)
 extension ParserSpan {
   @inlinable
   @lifetime(copy self)
-  @available(macOS 26.0, iOS 26.0, watchOS 26.0, tvOS 26.0, *)
   public mutating func sliceUTF8Span(byteCount: some FixedWidthInteger)
     throws(ParsingError) -> UTF8Span
   {

@@ -16,7 +16,7 @@ import PackageDescription
 
 let package = Package(
   name: "swift-binary-parsing",
-  platforms: [.macOS(.v15)],
+  platforms: [.macOS(.v15), .iOS(.v18)],
   products: [
     .library(name: "BinaryParsing", targets: ["BinaryParsing"])
     //    .library(name: "BinaryParsingEmbedded", targets: ["BinaryParsingEmbedded"]),
