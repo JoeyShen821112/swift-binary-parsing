@@ -67,20 +67,3 @@ extension ParserSpan {
     divide(atOffset: self.count).parserRange
   }
 }
-
-@available(macOS 9999, *)
-extension ParserSpan {
-  @inlinable
-  @lifetime(copy self)
-  public mutating func sliceUTF8Span(byteCount: some FixedWidthInteger)
-    throws(ParsingError) -> UTF8Span
-  {
-    let rawSpan = try sliceSpan(byteCount: byteCount).bytes
-    do {
-      let span = Span<UInt8>(_bytes: rawSpan)
-      return try UTF8Span(validating: span)
-    } catch {
-      throw ParsingError(status: .userError, location: startPosition)
-    }
-  }
-}
